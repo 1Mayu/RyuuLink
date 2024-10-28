@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RyuuLink</title>
+    <link rel="icon" href="/icons/icon.png" type="image/png" />
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <h2>Room Code: <span id="roomCode"></span></h2>
+    <div id="remoteAudios"></div>
+    <div id="users"></div>
+    <div class="chat">
+      <div id="messages"></div>
+      <input type="text" id="messageInput" placeholder="Type a message" />
+      <button onclick="sendMessage()">Send</button>
+    </div>
+    <div class="options">
+      <button id="disconnectButton" onclick="disconnect()">Disconnect</button>
+      <button id="muteButton" onclick="toggleMute()">
+        <i id="muteIcon" class="fas fa-microphone"></i> Mute
+      </button>
+      <button id="deafenButton" onclick="toggleDeafen()">
+        <i id="deafenIcon" class="fas fa-headphones"></i> Deafen
+      </button>
+      <button id="copyButton"><i class="fas fa-link"></i> Link</button>
+      <p
+        id="notification"
+        class="fas fa-link"
+        style="display: none; color: green"
+      >
+        Done!
+      </p>
+      <button id="noiseSuppressionButton">
+        <i class="fas fa-volume-up"></i> Enable Noise Suppression
+      </button>
+
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="client.js"></script>
+  </body>
+</html>

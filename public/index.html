@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RyuuLink</title>
+    <link rel="icon" href="/icons/icon.png" type="image/png" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>RyuuLink 🔗</h1>
+    <div class="options">
+      <input type="text" id="username" placeholder="Enter your name" required />
+      <button onclick="createRoom()">Create</button>
+      <input type="text" id="roomCode" placeholder="Enter Room Code" />
+      <button onclick="joinRoom()">Join</button>
+    </div>
+
+    <script>
+      function createRoom() {
+        const username = document.getElementById("username").value;
+        if (username) {
+          const roomCode = Math.random().toString(36).substr(2, 6);
+          window.location.href = `/room.html?room=${roomCode}&username=${username}`;
+        } else {
+          alert("Please enter your name.");
+        }
+      }
+
+      function joinRoom() {
+        const username = document.getElementById("username").value;
+        const roomCode = document.getElementById("roomCode").value;
+        if (username && roomCode) {
+          window.location.href = `/room.html?room=${roomCode}&username=${username}`;
+        } else {
+          alert("Please enter your name and room code.");
+        }
+      }
+    </script>
+  </body>
+</html>

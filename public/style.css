@@ -1,0 +1,324 @@
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background-color: #000000; /* لون خلفية داكن */
+  color: #ffffff; /* لون النص */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+h1, h2 {
+  text-align: center;
+  font-family: 'Orbitron', sans-serif;
+  color: #ffffff;
+  margin: 40px 0;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  animation: neonPulse 1.5s ease-in-out infinite alternate, 
+             logoFloat 3s ease-in-out infinite;
+  user-select: none;
+}
+
+h1 {
+  font-size: 4rem;
+  text-shadow: 
+    0 0 3px #ffffff,
+    0 0 6px #ffffff,
+    0 0 12px #ffffff,
+    0 0 24px #ffffff,
+    0 0 48px #ffffff;
+}
+
+h2 {
+  font-size: 2.5rem;
+  text-shadow: 
+    0 0 3px #ffffff,
+    0 0 6px #ffffff,
+    0 0 9px #ffffff;
+}
+
+h1::before, h1::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, #ffffff, #cccccc);
+  z-index: -1;
+  filter: blur(18px);
+  opacity: 0.42;
+  transition: all 0.3s ease;
+}
+
+h1:hover::before {
+  filter: blur(24px);
+  opacity: 0.6;
+}
+
+h1:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+@keyframes neonPulse {
+  from {
+    text-shadow: 
+      0 0 3px #ffffff,
+      0 0 6px #ffffff,
+      0 0 12px #ffffff,
+      0 0 24px #ffffff,
+      0 0 48px #ffffff;
+  }
+  to {
+    text-shadow: 
+      0 0 6px #ffffff,
+      0 0 12px #ffffff,
+      0 0 24px #ffffff,
+      0 0 48px #ffffff,
+      0 0 72px #ffffff;
+  }
+}
+
+@keyframes logoFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 3rem;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+}
+
+/* Black background with subtle gradient */
+body {
+  background: linear-gradient(270deg, #000000, #1a1a1a);
+  background-size: 400% 400%;
+  animation: gradientShift 10s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+
+#copyButton {
+  background-color: #2b2b2b; /* اللون الأسود */
+  transition: opacity 0.5s ease, background-color 0.3s ease, transform 0.3s ease; /* تأثير التلاشي والتحويم */
+  padding: 10px 20px; /* حجم الزر */
+  border-radius: 8px; /* الزوايا الدائرية */
+  display: flex;
+  align-items: center;
+  gap: 10px; /* المسافة بين الأيقونة والنص */
+  font-size: 16px; /* حجم النص */
+  color: white; /* لون النص */
+  cursor: pointer;
+  border: none; /* إزالة الحدود */
+}
+
+#copyButton i {
+  font-size: 1.2rem; /* حجم الأيقونة */
+}
+
+#copyButton:hover {
+  background-color: #333333; /* لون أفتح عند التحويم */
+  transform: scale(1.05); /* تكبير الزر عند التحويم */
+}
+
+.hidden {
+  opacity: 0; /* إخفاء العنصر تدريجيًا */
+}
+
+
+
+/* إعدادات أساسية للأزرار */
+#muteButton, #deafenButton, #disconnectButton {
+  background-color: #ff4757; /* لون أحمر للأزرار */
+  transition: background-color 0.3s, transform 0.3s;
+  padding: 10px 20px; /* حجم الزر */
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px; /* المسافة بين الأيقونة والنص */
+  font-size: 16px;
+}
+
+#muteButton i, #deafenButton i {
+  font-size: 1.2rem; /* حجم الأيقونة */
+}
+
+/* تأثير hover */
+#muteButton:hover, #deafenButton:hover, #disconnectButton:hover {
+  background-color: #ff6b81; /* لون أفتح عند التحويم */
+  transform: scale(1.05); /* تأثير التكبير عند التحويم */
+}
+
+/* الأنيميشن عند الضغط */
+#muteButton.active, #deafenButton.active {
+  animation: toggleAnimation 0.5s ease-in-out;
+}
+
+@keyframes toggleAnimation {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(20deg) scale(1.1);
+  }
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+/* أنيميشن عند تفعيل الصوت أو إلغاء تفعيل السماعة */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+}
+
+/* تأثير مميز على حالة unmute/undeafen */
+#muteButton.unmuted, #deafenButton.undeafened {
+  animation: pulse 1.5s infinite;
+}
+
+.options {
+  text-align: center;
+  margin-top: 20px;
+  display: flex; /* جعل الأزرار في صف واحد */
+  gap: 15px; /* المسافة بين الأزرار */
+  animation: slideIn 1s ease;
+}
+
+input {
+  width:70%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 20px;
+  border: 1px solid #ffffff;
+  background-color: #23272a; /* لون خلفية المدخلات */
+  color: #ffffff; /* لون النص */
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  border: 1px solid #43b581; /* تغيير لون الحدود عند التركيز */
+}
+
+button {
+  background-color: #2b2b2b; /* لون زر الإرسال */
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+  padding: 12px 30px; /* مساحة أكبر حول الزر */
+  font-weight: bold; /* جعل النص بالخط العريض */
+  border-radius: 20px; /* زوايا دائرية أكبر */
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+  background-color: #2b2b2b; /* لون أفتح عند التحويم */
+  transform: scale(1.05); /* تأثير التكبير عند التحويم */
+}
+
+.chat {
+  text-align: center;
+  margin-top: 20px;
+  width: 90%; /* زيادة عرض صندوق الدردشة */
+  max-width: 800px; /* تحديد الحد الأقصى للعرض */
+
+}
+
+#messages {
+  height: 400px; /* ارتفاع صندوق الرسائل */
+  margin: 20px 0; /* مسافة فوق وتحت صندوق الرسائل */
+  overflow-y: auto;
+  background-color: #23272a; /* لون خلفية منطقة الرسائل */
+  border: 1px solid #292929;
+  padding: 15px; /* مساحة أكبر داخل صندوق الرسائل */
+  border-radius: 20px; /* زوايا دائرية */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 1s ease;
+}
+
+#messages p {
+  margin: 5px 0;
+  padding: 8px;
+  border-radius: 5px;
+  background: #3a3f42; /* لون خلفية الرسالة */
+  transition: background 0.3s ease;
+}
+
+#messages p:hover {
+  background: #424549; /* لون خلفية الرسالة عند التحويم */
+}
+
+audio {
+  display: block;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+#remoteAudios {
+  margin-top: 20px;
+}
+
+#users {
+  margin-top: 20px;
+  text-align: left; /* محاذاة إلى اليسار */
+  width: 90%; /* زيادة عرض قائمة المستخدمين */
+  max-width: 800px; /* تحديد الحد الأقصى للعرض */
+}
+
+#users p {
+  background-color: #3a3f42; /* لون خلفية المستخدمين */
+  margin: 5px 0;
+  padding: 8px; /* مساحة أكبر */
+  border-radius: 20px;
+  transition: background 0.3s ease;
+}
+
+#users p:hover {
+  background-color: #424549; /* لون الخلفية عند التحويم */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
